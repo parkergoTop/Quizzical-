@@ -1,0 +1,31 @@
+.enter-page{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+
+   margin-top: 185px;
+}
+
+.title{
+    color: #293264;
+    font-weight: 600;
+}
+
+.description{
+    color: #293264;
+    font-size: large;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.quiz-btn{
+     width: 150px;
+     height: 50px;
+     background-color: #4D5B9E;
+     color: white;
+     border: 0;
+     border-radius: 10px;
+     font-size: large;
+     font-weight: 600;
+}
