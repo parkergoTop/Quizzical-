@@ -6,3 +6,7 @@
 .background-bottom{
     position: fixed;
 }
+
+.main{
+    margin: 40px 240px;
+}

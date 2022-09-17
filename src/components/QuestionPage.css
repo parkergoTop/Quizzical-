@@ -1,0 +1,19 @@
+
+
+.question-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.check-button{
+    width: 125px;
+    height: 45px;
+    background-color:  #4D5B9E;
+    color: white;
+    border: 0px;
+    margin-top: 35px;
+    font-size: 15px;
+    font-weight: 600;
+}
