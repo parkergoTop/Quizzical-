@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Question from "./Question";
 import "./QuestionPage.css"
 
@@ -30,13 +30,19 @@ export default function QuestionPage(){
       
       console.log(questions)
 
-
       function setClickedAns(event,id){
-          setAns(preState => [...preState, event.target.value])
-       
-          
+         setAns(preState => [...preState, event.target.value]);
+
+         setQues(preState => {
+           return preState.map(
+              element => {
+                 return (element.id == id ? {...element, "isAnswered":true} : element)
+              }
+           )
+         });
       }
 
+    
       console.log(clickans)
        
       const questionDisplay = questions.map(element => {return <Question 
