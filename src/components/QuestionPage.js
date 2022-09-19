@@ -2,17 +2,31 @@ import React from "react";
 import Question from "./Question";
 import "./QuestionPage.css"
 
-export default function QuestionPage(props){
-     
-      
+export default function QuestionPage(){
+   
+   const [questions, setQues] = React.useState([])
+   
+   React.useEffect(()=>
+   {fetch("https://opentdb.com/api.php?amount=10")
+      .then(res => res.json())
+        .then(data => setQues(data.results.map(
+         (element,index) => {
+            return ({...element,"isAnswered":false, "id":index, "key":index})
+                   })))},
+        []) 
+
+
+
+
       const [clickans, setAns] = React.useState([]);
+      /*
       const [questions, setQues] = React.useState(
          props.ques.map(
             (element,index) => {
                return ({...element,"isAnswered":false, "id":index, "key":index})
                       }))
      
-      
+      */
       
       console.log(questions)
 
