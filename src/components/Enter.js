@@ -7,7 +7,7 @@ export default function Enter(props){
     <div className = "enter-page">
           <h1 className="title">Quizzical</h1>
           <p className="description"> Check the question, see how quizzical you are</p>
-          <button className="quiz-btn" onClick = {props.enterGame}>Start quiz</button>
+          <button  className="quiz-btn" onClick = {props.enterGame}>Start quiz</button>
          
     </div>
    )

@@ -14,10 +14,17 @@ export default function App(){
    function enterGame(){
     setStart(true);
    }
-    
+     
 
 
-  React.useEffect(()=>{fetch("https://opentdb.com/api.php?amount=10").then(res => res.json()).then(data => setQues(data.results))}, [])  
+  React.useEffect(()=>
+     {fetch("https://opentdb.com/api.php?amount=10")
+        .then(res => res.json())
+          .then(data => setQues(data.results))},
+          []) 
+
+  
+      
  
   
    

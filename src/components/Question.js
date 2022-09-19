@@ -3,13 +3,13 @@ import "./Question.css"
 
 export default function Question(props){
 
-    const answers = [...props.incorrect, props.correct]
+ const answers = [...props.incorrect, props.correct]
     
   
    const ans = []
    for(let i = 0; i < answers.length; i ++){
 
-    ans.push(<button onClick={props.handleAnswerClick(answers[i])}>{answers[i]}</button>)
+    ans.push(<button value={answers[i]} onClick={ props.setClickedAns}>{answers[i]}</button>)
    }
 
     
