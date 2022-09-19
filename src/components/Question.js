@@ -4,22 +4,30 @@ import "./Question.css"
 export default function Question(props){
 
  const answers = [...props.incorrect, props.correct]
-    
+ 
   
+ 
    const ans = []
    for(let i = 0; i < answers.length; i ++){
 
-    ans.push(<button value={answers[i]} onClick={ props.setClickedAns}>{answers[i]}</button>)
+    ans.push(
+    <div>
+    <input type="button" id="choices" value={answers[i]} onClick={ props.setClickedAns} disabled={props.isAnswered}/>
+    
+    </div>)
    }
-
+   
+   
     
     return(
     <div className="question-component">
-        <h2 className="question-title">{props.question}</h2>
-        <div className="answers">
+       <p className="question-title">{props.question}</p>
+       <div className="answers">
+         
             {ans}
+         
         </div>
         <hr className="hr-line"/>
-    </div>
+      </div>
     )
 }

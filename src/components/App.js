@@ -10,7 +10,7 @@ import QuestionPage from "./QuestionPage"
 export default function App(){
   const [startGame, setStart]=React.useState(false)
   const [ques, setQues] = React.useState([])
-
+  
    function enterGame(){
     setStart(true);
    }
