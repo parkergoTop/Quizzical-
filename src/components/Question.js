@@ -6,7 +6,7 @@ import Answer from "./Answer";
 export default function Question(props){
 
  const answers = [...props.incorrect, props.correct]
- 
+
   
  
   function displayAns(){
@@ -14,17 +14,13 @@ export default function Question(props){
     for(let i = 0; i < answers.length; i ++){
        ans.push(
         <Answer 
+             key={answers[i]}
              id={props.id}
              setClickedAns ={props.setClickedAns} 
              isAnswered ={props.isAnswered} 
              answer={answers[i]}/>
        )
-    /*
-    ans.push(
-    <div>
-    <input type="button" id="choices" value={answers[i]} onClick={ () => props.setClickedAns(event,props.id)} disabled={props.isAnswered}/>
-    </div>)
-    */
+  
    }
    return ans
   }

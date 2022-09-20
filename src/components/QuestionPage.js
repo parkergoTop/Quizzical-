@@ -32,6 +32,10 @@ export default function QuestionPage(props){
    // set boolean state for checking the "checked Answer button" is clicked or not
    // if answered check, conditioally rendering "replay buton", and resetState
    const [isAnsed, setIsAnswered] = React.useState(false);
+
+
+   //
+   const [isClicked, setIsClicked] =React.useState(false);
    
    React.useEffect(()=>
    {
@@ -39,6 +43,8 @@ export default function QuestionPage(props){
       setCorrectCount(0);
       setChecked(false)
       setIsAnswered(false)
+
+
       fetch("https://opentdb.com/api.php?amount=10")
       .then(res => res.json())
         .then(data => {
@@ -57,23 +63,21 @@ export default function QuestionPage(props){
         [isAnsed]);
       
       
-   /*
-      useEffect( () => {
-           setQues(props.ques.map(
-            (element,index) => {
-               console.log("question page state updated")
-               return ({...element,"isAnswered":false, "id":index, "key":index})
-                      }))
-      }, [])
-       */
       
+      function changeAnswerBackround(){
+         
+      }
       
       console.log(questions)
 
-      function setClickedAns(event,id){
+      function setClickedAns(event,id, setClicked){
          // after clicked one answer, save the clicked answer value into an array clickedAns[]
          setAns(preState => [...preState, {"id": id, "ans": event.target.value}]);
+      
+         setClicked(true)    
+         //after one answer get clicked, the answer shows another colour
 
+      
 
          // after clciked on answer, disable the other options(buttons) by setting all of the diable: true
          setQues(preState => {
@@ -88,7 +92,7 @@ export default function QuestionPage(props){
        
       console.log(clickedAns)
 
-
+      
 
       // (1) set isAnswered state to ture (2) showing all correct answers  (3) counting all correctly answered questions
       function checkAnswers(){
