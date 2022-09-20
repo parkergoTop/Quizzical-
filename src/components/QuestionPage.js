@@ -4,7 +4,7 @@ import "./QuestionPage.css"
 
 export default function QuestionPage(props){
    
-   const [questions, setQues] = React.useState([])
+   const [questions, setQues] = React.useState([]);
    const [clickans, setAns] = React.useState([]);
 
 
@@ -17,7 +17,7 @@ export default function QuestionPage(props){
                console.log("question page state updated")
                return ({...element,"isAnswered":false, "id":index, "key":index})
                       }))
-      }, [1])
+      }, [])
        
       
       
@@ -29,6 +29,7 @@ export default function QuestionPage(props){
          setQues(preState => {
            return preState.map(
               element => {
+               console.log("reset worked")
                  return (element.id === id ? {...element, "isAnswered":true} : element)
               }
            )

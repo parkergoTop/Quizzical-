@@ -12,7 +12,7 @@ export default function Question(props){
 
     ans.push(
     <div>
-    <input type="button" id="choices" value={answers[i]} onClick={ props.setClickedAns(event, props.id)} disabled={props.isAnswered}/>
+    <input type="button" id="choices" value={answers[i]} onClick={ () => props.setClickedAns(event,props.id)} disabled={props.isAnswered}/>
     
     </div>)
    }

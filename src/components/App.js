@@ -20,7 +20,9 @@ export default function App(){
   React.useEffect(()=>
      {fetch("https://opentdb.com/api.php?amount=10")
         .then(res => res.json())
-          .then(data => setQues(data.results))},
+          .then(data => {
+            console.log("data fetched")
+            setQues(data.results)})},
           []) 
   
   
