@@ -18,7 +18,7 @@ export default function QuestionPage(props){
    const [clickedAns, setAns] = React.useState([]);
 
    const [correctCount, setCorrectCount] = React.useState(0);
-   
+   const [isChecked, setChecked] =React.useState(false);
    // set boolean state for checking the "checked Answer button" is clicked or not
    // if answered check, conditioally rendering "replay buton", and resetState
    const [isAnswered, setIsAnswered] = React.useState(false);
@@ -27,6 +27,7 @@ export default function QuestionPage(props){
    {
       setAns([]);
       setCorrectCount(0);
+      setChecked(false)
       fetch("https://opentdb.com/api.php?amount=10")
       .then(res => res.json())
         .then(data => {
@@ -77,13 +78,13 @@ export default function QuestionPage(props){
       console.log(clickedAns)
 
 
-      
+
       // (1) set isAnswered state to ture (2) showing all correct answers  (3) counting all correctly answered questions
       function checkAnswers(){
          // make an array correctAnswer to store all quation id and its corresponding answer 
-         setIsAnswered(true)
+         setChecked(true)
          const correctAnswer = questions.map( element => {return {"id":element.id, "correct_ans": element.correct_answer}})
-         
+         console.log(correctAnswer)
          // showing all correct answers on display  ??
          
       
@@ -113,7 +114,7 @@ export default function QuestionPage(props){
 
         
        function replayGame(){
-            setIsAnswered(false)
+            setIsAnswered(true)
        }
       
    
@@ -132,7 +133,7 @@ export default function QuestionPage(props){
      return (
         <div className="question-page"> 
            <div>{questionDisplay}</div>
-           {isAnswered? 
+           {isChecked? 
                 <div>
                 {showingScore()} 
                 
