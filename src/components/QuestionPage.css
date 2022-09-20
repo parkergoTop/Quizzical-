@@ -5,7 +5,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-right: 105px;
+    margin-left: 135px;
+  
 }
+
+.question-display{
+    width: 100%;
+}
+
 
 .check-button{
     width: 125px;

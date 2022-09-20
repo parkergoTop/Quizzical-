@@ -13,21 +13,32 @@ export default function QuestionPage(props){
                 }));
 
    */
+    
 
+   // questions to fetch the question data from api, and add answered and id/key for each Question component
    const [questions,setQues] = React.useState([])
-   const [clickedAns, setAns] = React.useState([]);
 
+   // array state to store user's clicked answer for each <Question>  and the quetsion's id 
+   const [clickedAns, setAns] = React.useState([]);
+   
+   // state to  store the count number that use have answered correctly
    const [correctCount, setCorrectCount] = React.useState(0);
+
+   // if checked("Check answer" button clicked), set it to true
+   // replay the game ("Play again button clicked"), set the value to false again (default)
    const [isChecked, setChecked] =React.useState(false);
+
+
    // set boolean state for checking the "checked Answer button" is clicked or not
    // if answered check, conditioally rendering "replay buton", and resetState
-   const [isAnswered, setIsAnswered] = React.useState(false);
-    
+   const [isAnsed, setIsAnswered] = React.useState(false);
+   
    React.useEffect(()=>
    {
       setAns([]);
       setCorrectCount(0);
       setChecked(false)
+      setIsAnswered(false)
       fetch("https://opentdb.com/api.php?amount=10")
       .then(res => res.json())
         .then(data => {
@@ -43,7 +54,7 @@ export default function QuestionPage(props){
 
          }
          )},
-        [isAnswered]);
+        [isAnsed]);
       
       
    /*
@@ -108,8 +119,8 @@ export default function QuestionPage(props){
         /*
              for replay game, 
                   (1) app need to fetch the data again 
-                  (2) clickedans/questions/correctCount/ all statesneeds to reinitilised (re-load QuestionPage)
-                  (3)
+                  (2) clickedans/questions/correctCount/ all statesneeds to reinitilised (re-load QuestionPage) by using useEffect to async states
+                    
         */
 
         
@@ -132,9 +143,9 @@ export default function QuestionPage(props){
  
      return (
         <div className="question-page"> 
-           <div>{questionDisplay}</div>
+           <div className="question-display">{questionDisplay}</div>
            {isChecked? 
-                <div>
+                <div >
                 {showingScore()} 
                 
                 <button onClick = {replayGame}className="check-button"> Play Again</button> 
