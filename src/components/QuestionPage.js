@@ -2,31 +2,24 @@ import React, { useEffect } from "react";
 import Question from "./Question";
 import "./QuestionPage.css"
 
-export default function QuestionPage(){
+export default function QuestionPage(props){
    
    const [questions, setQues] = React.useState([])
+   const [clickans, setAns] = React.useState([]);
+
+
+      
    
-   React.useEffect(()=>
-   {fetch("https://opentdb.com/api.php?amount=10")
-      .then(res => res.json())
-        .then(data => setQues(data.results.map(
-         (element,index) => {
-            return ({...element,"isAnswered":false, "id":index, "key":index})
-                   })))},
-        []) 
 
-
-
-
-      const [clickans, setAns] = React.useState([]);
-      /*
-      const [questions, setQues] = React.useState(
-         props.ques.map(
+      useEffect( () => {
+           setQues(props.ques.map(
             (element,index) => {
+               console.log("question page state updated")
                return ({...element,"isAnswered":false, "id":index, "key":index})
                       }))
-     
-      */
+      }, [1])
+       
+      
       
       console.log(questions)
 
@@ -36,15 +29,13 @@ export default function QuestionPage(){
          setQues(preState => {
            return preState.map(
               element => {
-                 return (element.id == id ? {...element, "isAnswered":true} : element)
+                 return (element.id === id ? {...element, "isAnswered":true} : element)
               }
            )
          });
       }
 
-    
-      console.log(clickans)
-       
+
       const questionDisplay = questions.map(element => {return <Question 
         question = {element.question}
         incorrect ={element.incorrect_answers}
@@ -54,8 +45,7 @@ export default function QuestionPage(){
         key={element.key}
         id={element.id}/>})
 
-        //https://stackoverflow.com/questions/70556785/warning-cannot-update-a-component-x-while-rendering-a-different-y-component-to
-
+      
  
      return (
         <div className="question-page"> 
