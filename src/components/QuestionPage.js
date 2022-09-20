@@ -4,16 +4,7 @@ import "./QuestionPage.css"
 
 export default function QuestionPage(props){
 
-   
-   /*
-   const [questions, setQues] = React.useState(props.ques.map(
-      (element,index) => {
-         
-         return ({...element,"isAnswered":false, "id":index, "key":index})
-                }));
-
-   */
-    
+ 
 
    // questions to fetch the question data from api, and add answered and id/key for each Question component
    const [questions,setQues] = React.useState([])
@@ -24,26 +15,27 @@ export default function QuestionPage(props){
    // state to  store the count number that use have answered correctly
    const [correctCount, setCorrectCount] = React.useState(0);
 
-   // if checked("Check answer" button clicked), set it to true
-   // replay the game ("Play again button clicked"), set the value to false again (default)
-   const [isChecked, setChecked] =React.useState(false);
+  
 
 
    // set boolean state for checking the "checked Answer button" is clicked or not
    // if answered check, conditioally rendering "replay buton", and resetState
-   const [isAnsed, setIsAnswered] = React.useState(false);
+   const [isChecked, setChecked] = React.useState(false);
 
 
-   //
-   const [isClicked, setIsClicked] =React.useState(false);
+   // if checked("Check answer" button clicked), set it to true
+   // replay the game ("Play again button clicked"), set the value to false again (default)
+   const [isReplayed, setReplayed] =React.useState(false);
+   
    
    React.useEffect(()=>
    {
       setAns([]);
       setCorrectCount(0);
       setChecked(false)
-      setIsAnswered(false)
-
+      setReplayed(false)
+      
+  
 
       fetch("https://opentdb.com/api.php?amount=10")
       .then(res => res.json())
@@ -60,14 +52,12 @@ export default function QuestionPage(props){
 
          }
          )},
-        [isAnsed]);
+        [isReplayed]);
       
       
       
-      function changeAnswerBackround(){
-         
-      }
       
+
       console.log(questions)
 
       function setClickedAns(event,id, setClicked){
@@ -89,8 +79,7 @@ export default function QuestionPage(props){
            )
          });
       }
-       
-      console.log(clickedAns)
+
 
       
 
@@ -129,7 +118,8 @@ export default function QuestionPage(props){
 
         
        function replayGame(){
-            setIsAnswered(true)
+          
+            setReplayed(true)
        }
       
    
@@ -141,7 +131,8 @@ export default function QuestionPage(props){
         setClickedAns = {setClickedAns}
         isAnswered = {element.isAnswered}
         key={element.key}
-        id={element.id}/>})
+        id={element.id}
+        isReplayed={isReplayed}/>})
 
       
  

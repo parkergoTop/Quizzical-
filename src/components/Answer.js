@@ -4,6 +4,14 @@ export default function Answer(props){
 
   const [isClicked, setClicked]=React.useState(false)
   
+
+  React.useEffect(() => {
+     setClicked(false)
+  }, [props.isReplayed])
+
+
+
+
     return(<input type="button" 
                   id="choices" 
                   value={props.answer}

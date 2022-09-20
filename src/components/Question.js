@@ -6,7 +6,7 @@ import Answer from "./Answer";
 export default function Question(props){
 
  const answers = [...props.incorrect, props.correct]
-
+ 
   
  
   function displayAns(){
@@ -18,7 +18,8 @@ export default function Question(props){
              id={props.id}
              setClickedAns ={props.setClickedAns} 
              isAnswered ={props.isAnswered} 
-             answer={answers[i]}/>
+             answer={answers[i]}
+             isReplayed={props.isReplayed}/>
        )
   
    }
