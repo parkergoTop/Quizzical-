@@ -112,8 +112,8 @@ export default function QuestionPage(props){
 
         //showing score 
         function showingScore(){
-         console.log(correctCount);
-           return (<p> You scored {correctCount}/ 10 correct answers</p>)
+      
+           return (<p className="scoring"> You scored {correctCount}/ 10 correct answers</p>)
         }
 
         /*
@@ -145,7 +145,7 @@ export default function QuestionPage(props){
         <div className="question-page"> 
            <div className="question-display">{questionDisplay}</div>
            {isChecked? 
-                <div >
+                <div className="checked">
                 {showingScore()} 
                 
                 <button onClick = {replayGame}className="check-button"> Play Again</button> 

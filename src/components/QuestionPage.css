@@ -16,12 +16,31 @@
 
 
 .check-button{
+    display: flex;
     width: 125px;
     height: 45px;
     background-color:  #4D5B9E;
     color: white;
     border: 0px;
-    margin-top: 35px;
+    margin-top: 0px;
     font-size: 15px;
     font-weight: 600;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+
 }
+
+ .checked {
+    display: flex;
+    align-items: center;
+    column-gap: 30px;
+ }
+
+ .scoring{
+    display: flex;
+    align-items: center;
+    color :  #293264;
+    font-weight: 600;
+    font-size: 1.2rem;
+ }
