@@ -18,7 +18,7 @@ export default function Answer(props){
   // !! useEffect will run  one time for initial render, no matter we set isClicked or not
   React.useEffect(() => {
       isClicked ? setBgColor("#D6DBF5") : setBgColor("white")
-        console.log("color changed by use effect")
+    
   }, [ isClicked])
 
    React.useEffect (() => {

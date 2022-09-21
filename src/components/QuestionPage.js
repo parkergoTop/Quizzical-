@@ -27,7 +27,8 @@ export default function QuestionPage(props){
    // replay the game ("Play again button clicked"), set the value to false again (default)
    const [isReplayed, setReplayed] =React.useState(false);
    
-   
+  
+
    React.useEffect(()=>
    {
       setAns([]);
@@ -41,11 +42,11 @@ export default function QuestionPage(props){
       fetch("https://opentdb.com/api.php?amount=10")
       .then(res => res.json())
         .then(data => {
-
+          console.log(data)
           console.log("data fetched")
           setQues(data.results.map(
                           (element,index) => {
-               
+                                       
                                         return ({...element,"isAnswered":false, "id":index, "key":index})
                                                }
                                      )
@@ -59,7 +60,7 @@ export default function QuestionPage(props){
       
       
 
-      console.log(questions)
+     
 
       function setClickedAns(event,id, setClicked, isChecked){
          // after clicked one answer, save the clicked answer value into an array clickedAns[]

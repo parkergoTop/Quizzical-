@@ -22,7 +22,7 @@ export default function Question(props){
        while(currentIndex !=0 ){
        
        randomIndex = Math.floor(Math.random()* currentIndex);
-       console.log(randomIndex)
+      
      // Math Math.random() return random [0, 1)
      // Math.floor() always rounds down and returns the largets integer
 
@@ -39,7 +39,7 @@ export default function Question(props){
     }
     
     useEffect( () => {
-      console.log("useEffect for shuffle answers worked")
+     
      setAns(shuffle([...props.incorrect, props.correct]))}, [props.question])
 
     
@@ -62,11 +62,23 @@ export default function Question(props){
   
    }
    return ans
-  }
+  } 
     
+   // render  {props.question}, react wont deal with "HTML Entity"
+   // find the entity number and convert them into html  entity, by adding <span> </span> around
+   function decodeQuestion(){
+       var txt = document.createElement("textarea");
+       txt.innerHTML = props.question
+       return txt.value;
+   }
+
+
+
+
+
     return(
     <div className="question-component">
-       <p className="question-title">{props.question}</p>
+       <p className="question-title">  {decodeQuestion()}</p>
        <div className="answers">
          
             {displayAns()}

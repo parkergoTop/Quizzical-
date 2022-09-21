@@ -11,5 +11,7 @@ root.render(
 <div>
 <img className="background-top" src={topImg}/>
 <App/>
+
 <img className="background-bottom" src={bottomImg}/>
+
 </div>)
