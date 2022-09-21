@@ -17,9 +17,11 @@ export default function Question(props){
              key={answers[i]}
              id={props.id}
              setClickedAns ={props.setClickedAns} 
+             correct ={props.correct}
              isAnswered ={props.isAnswered} 
              answer={answers[i]}
-             isReplayed={props.isReplayed}/>
+             isReplayed={props.isReplayed}
+             isChecked={props.isChecked}/>
        )
   
    }

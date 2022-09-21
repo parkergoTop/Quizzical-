@@ -132,7 +132,8 @@ export default function QuestionPage(props){
         isAnswered = {element.isAnswered}
         key={element.key}
         id={element.id}
-        isReplayed={isReplayed}/>})
+        isReplayed={isReplayed}
+        isChecked={isChecked}/>})
 
       
  
