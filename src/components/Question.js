@@ -6,8 +6,8 @@ import Answer from "./Answer";
 export default function Question(props){
 
  
- 
-  const [answers,setAns] = React.useState([...props.incorrect, props.correct])
+  
+  const [answers,setAns] = React.useState([])
   
    
   
@@ -39,7 +39,8 @@ export default function Question(props){
     }
     
     useEffect( () => {
-     setAns(shuffle(answers))}, [])
+      console.log("useEffect for shuffle answers worked")
+     setAns(shuffle([...props.incorrect, props.correct]))}, [props.question])
 
     
 

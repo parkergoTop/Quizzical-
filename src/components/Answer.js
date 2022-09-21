@@ -7,8 +7,8 @@ export default function Answer(props){
   
 
   React.useEffect(() => {
-     if( props.isChecked && props.answer ===props.correct){
-      setBgColor("#94D7A2")
+     if( props.isChecked &&props.isChecked && props.answer ===props.correct){
+      setBgColor("#94D7A2") // green 
      }else if  (isClicked && props.isChecked && props.answer != props.correct){
       setBgColor("#F8BCBC")
      } 
