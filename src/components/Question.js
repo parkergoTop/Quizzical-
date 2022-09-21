@@ -8,8 +8,7 @@ export default function Question(props){
  
   
   const [answers,setAns] = React.useState([])
-  
-   
+  const  [question, setQuestion] = React.useState([])
   
   
   
@@ -40,7 +39,11 @@ export default function Question(props){
     
     useEffect( () => {
      
-     setAns(shuffle([...props.incorrect, props.correct]))}, [props.question])
+     setQuestion(decodeQuestion(props.question))
+     setAns(shuffle([...props.incorrect, props.correct]))
+     
+    },
+      [props.question])
 
     
 
@@ -66,19 +69,18 @@ export default function Question(props){
     
    // render  {props.question}, react wont deal with "HTML Entity"
    // find the entity number and convert them into html  entity, by adding <span> </span> around
-   function decodeQuestion(){
-       var txt = document.createElement("textarea");
-       txt.innerHTML = props.question
-       return txt.value;
-   }
-
-
-
+ 
+   function decodeQuestion(content){
+    var txt = document.createElement("textarea");
+    txt.innerHTML = content
+    console.log("decoded");
+    return txt.value;
+}
 
 
     return(
     <div className="question-component">
-       <p className="question-title">  {decodeQuestion()}</p>
+       <p className="question-title">  {question}</p>
        <div className="answers">
          
             {displayAns()}
