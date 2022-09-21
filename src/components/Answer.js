@@ -4,9 +4,7 @@ export default function Answer(props){
 
   const [isClicked, setClicked]=React.useState(false)
   const [bgColor, setBgColor] = React.useState("")
-  console.log("not clicked")
- 
-   console.log(bgColor)
+  
 
   React.useEffect(() => {
      if( props.isChecked && props.answer ===props.correct){
@@ -27,7 +25,6 @@ export default function Answer(props){
       props.isReplayed && setClicked(false)
    }, [props.isReplayed])
  
-  console.log(bgColor)
 
     return(<input type="button" 
                   id="choices" 

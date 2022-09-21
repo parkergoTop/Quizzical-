@@ -74,7 +74,6 @@ export default function QuestionPage(props){
          setQues(preState => {
            return preState.map(
               element => {
-               console.log("reset worked")
                  return (element.id === id ? {...element, "isAnswered":true} : element)
               }
            )

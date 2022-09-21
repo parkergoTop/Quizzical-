@@ -1,14 +1,49 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Question.css"
 import "./Answer"
 import Answer from "./Answer";
 
 export default function Question(props){
 
- const answers = [...props.incorrect, props.correct]
  
+ 
+  const [answers,setAns] = React.useState([...props.incorrect, props.correct])
   
- 
+   
+  
+  
+  
+   
+
+    
+    function shuffle(answers) {
+        var currentIndex = answers.length, randomIndex;
+     
+       while(currentIndex !=0 ){
+       
+       randomIndex = Math.floor(Math.random()* currentIndex);
+       console.log(randomIndex)
+     // Math Math.random() return random [0, 1)
+     // Math.floor() always rounds down and returns the largets integer
+
+         currentIndex--;
+      
+        // And swap it with the current element.
+    
+      [ answers[currentIndex], answers[randomIndex] ] = 
+      [ answers[randomIndex], answers[currentIndex]]
+    
+       }
+
+      return answers
+    }
+    
+    useEffect( () => {
+     setAns(shuffle(answers))}, [])
+
+    
+
+
   function displayAns(){
     const ans = [];
     for(let i = 0; i < answers.length; i ++){
