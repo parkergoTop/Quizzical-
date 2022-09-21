@@ -9,8 +9,12 @@ export default function Answer(props){
    console.log(bgColor)
 
   React.useEffect(() => {
-     setClicked(false)
-  }, [props.isReplayed])
+     if( props.isChecked && props.answer ===props.correct){
+      setBgColor("#94D7A2")
+     }else if  (isClicked && props.isChecked && props.answer != props.correct){
+      setBgColor("#F8BCBC")
+     } 
+  }, [props.isChecked])
 
 
   // !! useEffect will run  one time for initial render, no matter we set isClicked or not
@@ -19,6 +23,9 @@ export default function Answer(props){
         console.log("color changed by use effect")
   }, [ isClicked])
 
+   React.useEffect (() => {
+      props.isReplayed && setClicked(false)
+   }, [props.isReplayed])
  
   console.log(bgColor)
 

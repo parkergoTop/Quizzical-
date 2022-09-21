@@ -35,6 +35,7 @@ export default function QuestionPage(props){
       setChecked(false)
       setReplayed(false)
       
+      
   
 
       fetch("https://opentdb.com/api.php?amount=10")
@@ -60,9 +61,9 @@ export default function QuestionPage(props){
 
       console.log(questions)
 
-      function setClickedAns(event,id, setClicked){
+      function setClickedAns(event,id, setClicked, isChecked){
          // after clicked one answer, save the clicked answer value into an array clickedAns[]
-         setAns(preState => [...preState, {"id": id, "ans": event.target.value}]);
+         setAns(preState => [...preState, {"id": id, "ans": event.target.value,}]);
       
          setClicked(true)    
          //after one answer get clicked, the answer shows another colour
